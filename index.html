@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isis Ledesma, ¿Quieres ser mi San Valentín? ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Fondo de pétalos flotantes */
+        .petals {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .petals span {
+            position: absolute;
+            background: pink;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            animation: fall 6s infinite linear;
+            opacity: 0.7;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh); opacity: 0.7; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Fondo de corazones */
+        .heart-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            display: none;
+        }
+        .heart-bg span {
+            position: absolute;
+            bottom: -10px;
+            width: 20px;
+            height: 20px;
+            background: red;
+            transform: rotate(-45deg);
+            animation: float 5s infinite linear;
+            opacity: 0.6;
+        }
+        .heart-bg span::before,
+        .heart-bg span::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+        }
+        .heart-bg span::before { top: -10px; left: 0; }
+        .heart-bg span::after { left: 10px; top: 0; }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(-45deg); opacity: 0; }
+        }
+
+        /* Tarjeta central */
+        .card {
+            background: #ff66b2;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+            animation: fadeIn 2s;
+            text-align: center;
+            max-width: 400px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0px 15px 25px rgba(255, 51, 133, 0.3);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            color: #fff;
+            font-family: 'Pacifico', cursive;
+            font-size: 26px;
+            animation: fadeInText 2s ease-out;
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .heart {
+            font-size: 80px;
+            animation: heartbeat 1s infinite;
+            color: red;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        /* Botones */
+        .btn {
+            margin: 15px;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .yes {
+            background-color: #ff3385;
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 51, 133, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .yes:hover {
+            background-color: #e60073;
+            box-shadow: 0 6px 15px rgba(255, 51, 133, 0.6);
+            transform: scale(1.1);
+        }
+
+        .no {
+            background-color: #fff;
+            color: black;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .no:hover {
+            background-color: #f2f2f2;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Estilo del marco para la imagen */
+        .photo-frame {
+            border: 15px solid #ff66b2;
+            padding: 10px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .photo-frame img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="heart-bg"></div>
+    <div class="petals"></div> <!-- Pétalos flotando -->
+    <div class="card">
+        <div class="heart">❤️</div>
+        <h1>Isis Ledesma, ¿Quieres ser mi San Valentín? ❤️</h1>
+        <br>
+        <button class="btn yes" onclick="aceptar()">Sí 💖</button>
+        <button class="btn no" onmouseover="moverNo()" onclick="cambiarTextoNo()">No 💔</button>
+    </div>
+    
+    <script>
+        let noBtn = document.querySelector('.no');
+        let yesBtn = document.querySelector('.yes');
+        let noClickCount = 0;
+        let heartBg = document.querySelector('.heart-bg');
+        let petals = document.querySelector('.petals');
+
+        // Crear pétalos flotantes
+        for (let i = 0; i < 20; i++) {
+            let petal = document.createElement('span');
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (5 + Math.random() * 3) + 's';
+            petal.style.animationDelay = Math.random() * 3 + 's';
+            petals.appendChild(petal);
+        }
+
+        function aceptar() {
+            document.body.innerHTML = `
+                <div style="text-align:center; padding:50px; color: white;">
+                    <h1 style="font-size:40px; font-family: 'Pacifico', cursive;">¡Sabía que dirías que sí! 💕</h1>
+                    <p style="font-size:20px;">Será el mejor San Valentín que has tenido, amor 💖</p>
+                    <div class="photo-frame">
+                        <img src="miamor.jpg" alt="Imagen de ustedes">
+                    </div>
+                </div>`;
+            crearCorazones();
+        }
+
+        function moverNo() {
+            let cardRect = document.querySelector('.card').getBoundingClientRect();
+            let x = Math.random() * (cardRect.width - noBtn.offsetWidth);
+            let y = Math.random() * (cardRect.height - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            yesBtn.style.transform = `scale(${1.2 + noClickCount * 0.1})`;
+        }
+
+        function cambiarTextoNo() {
+            let mensajes = ["¿Estás segura?", "¿Segurísima?", "Piénsalo bien...", "¡Dale, di que sí! 💖"];
+            noBtn.innerText = mensajes[noClickCount % mensajes.length];
+            noClickCount++;
+        }
+
+        function crearCorazones() {
+            heartBg.style.display = 'block';
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement('span');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+                heartBg.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
